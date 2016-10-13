@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvvm", "Mvvm\Mvvm.csproj", "{143809D6-8B00-4985-A298-023B28DA0EE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmUtil.Droid", "MvvmUtil.Droid\MvvmUtil.Droid.csproj", "{670067BB-9857-460C-9C2F-61603E1A8C54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmUtil.iOS", "MvvmUtil.iOS\MvvmUtil.iOS.csproj", "{D9DE377B-9B9D-4C39-9D1B-8E2004183C24}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{143809D6-8B00-4985-A298-023B28DA0EE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{143809D6-8B00-4985-A298-023B28DA0EE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{143809D6-8B00-4985-A298-023B28DA0EE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{143809D6-8B00-4985-A298-023B28DA0EE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{670067BB-9857-460C-9C2F-61603E1A8C54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{670067BB-9857-460C-9C2F-61603E1A8C54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{670067BB-9857-460C-9C2F-61603E1A8C54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{670067BB-9857-460C-9C2F-61603E1A8C54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9DE377B-9B9D-4C39-9D1B-8E2004183C24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9DE377B-9B9D-4C39-9D1B-8E2004183C24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9DE377B-9B9D-4C39-9D1B-8E2004183C24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9DE377B-9B9D-4C39-9D1B-8E2004183C24}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
