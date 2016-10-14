@@ -29,10 +29,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AppBase.cs" />
-    <Compile Include="BindableBase.cs" />
-    <Compile Include="Log.cs" />
-    <Compile Include="PropertySupport.cs" />
+    <Compile Include="Mvvm\BindableBase.cs" />
+    <Compile Include="Mvvm\PropertySupport.cs" />
+    <Compile Include="App\AppBase.cs" />
+    <Compile Include="Logger\ILogger.cs" />
+    <Compile Include="Logger\Log.cs" />
+    <Compile Include="Logger\DefaultLogger.cs" />
+    <Compile Include="App\IPresenter.cs" />
+    <Compile Include="App\ViewExtensions.cs" />
+    <Compile Include="App\ViewModelBase.cs" />
+    <Compile Include="App\IView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Autofac">
@@ -41,6 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Mvvm\" />
+    <Folder Include="App\" />
+    <Folder Include="Logger\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

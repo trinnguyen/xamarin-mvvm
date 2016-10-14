@@ -8,7 +8,8 @@ namespace Mvvm
 	{
 		public IContainer Container { get; private set; }
 
-		private ContainerBuilder _builder;
+		public IPresenter Presenter { get; private set; }
+
 		private IModule _platformModule;
 
 		protected AppBase()
@@ -43,40 +44,47 @@ namespace Mvvm
 		private void InitializeComponents()
 		{
 			//2 - Init Autofac with components and modules
-			Log("Start init Autofac components and modules");
+			Log.Info("Start init Autofac components and modules");
 			InitAutofac();
-			Log("Finished setting up Autofac");
+			Log.Info("Finished setting up Autofac");
 
 			//3 - Finished
-			Log("OnInitialized");
+			Log.Info("OnInitialized");
 			OnInitialized();
 
 			//4 - StartUp
-			Log("Startup: show first screen");
-			Startup();
+			Log.Info("Startup: show first screen");
+			using (var scope = Container.BeginLifetimeScope())
+			{
+				//create log
+				Log.Logger = scope.Resolve<ILogger>();
+
+				//assign presenter
+				Presenter = scope.Resolve<IPresenter>();
+
+				//startup
+				Startup();
+			}
 		}
 
 		private void InitAutofac()
 		{
-			_builder = CreateAutofacBuilder();
+			ContainerBuilder builder = CreateAutofacBuilder();
 
 			//register specific components in project
-			RegisterCoreComponents(_builder);
+			RegisterCoreComponents(builder);
+
+			//register default logger
+			builder.Register((c) => new DefaultLogger()).As<ILogger>().SingleInstance();
 
 			//register platform module
 			if (_platformModule != null)
 			{
-				_builder.RegisterModule(_platformModule);
+				builder.RegisterModule(_platformModule);
 			}
 
 			//build
-			Container = _builder.Build(Autofac.Builder.ContainerBuildOptions.None);
-		}
-
-		protected void Log(string message)
-		{
-			Mvvm.Log.InfoMessage(message);
+			Container = builder.Build(Autofac.Builder.ContainerBuildOptions.None);
 		}
 	}
 }
-
